@@ -25,4 +25,43 @@ int partition(int arr[], int low, int high)
 
     return i + 1;
 }
+// Quick Sort Function
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        int p = partition(arr, low, high);
+
+        quickSort(arr, low, p - 1);
+        quickSort(arr, p + 1, high);
+    }
+}
+
+int main()
+{
+    int n;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[100];
+
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    quickSort(arr, 0, n - 1);
+
+    cout << "Sorted Array: ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+
+
 
